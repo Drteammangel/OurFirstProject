@@ -1,1 +1,5 @@
 The project starts at 2015.7.23 22:50.
+
+安装mysql模块时可能会遇到问题，请安装：
+Visual C++ 9.0 for Python
+mysql-connector-c-6.0.2-win32
