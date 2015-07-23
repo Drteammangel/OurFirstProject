@@ -11,19 +11,17 @@ class RawData(object):
         self.__data = data
 
     @staticmethod
-    def test():
+    def get_all():
         conn = mysql.connector.connect(user='root', password='', database='spider')
         cursor = conn.cursor()
         cursor.execute("select * from raw_data;")
         values = cursor.fetchall()
         conn.commit()
         cursor.close()
-        print(values)
+        return values
 
-    def save(self):
-        conn = mysql.connector.connect(user='root', password='', database='spider')
+    def save(self, conn):
         cursor = conn.cursor()
         cursor.execute("insert into raw_data (url, data) VALUES (%s, %s)", [self.__url, self.__data])
-        print(cursor.rowcount)
         conn.commit()
         cursor.close()
